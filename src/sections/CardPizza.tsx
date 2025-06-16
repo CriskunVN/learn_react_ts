@@ -1,10 +1,8 @@
 
 import LogoPizza from '../assets/pizza.jpg';
+import { Pizza } from "../models/pizza.model";
 
-type Props = {
-    title?: string,
-    description?: string,
-}
+type Props = Pizza;
 
 const CardPizza = ({title, description} : Props) => { 
 
