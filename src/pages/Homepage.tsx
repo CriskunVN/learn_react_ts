@@ -1,5 +1,5 @@
 import CardPizza from '../sections/CardPizza';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pizza } from '../models/pizza.model';
 import ItemPizza from '../sections/ItemPizza';
 
@@ -37,26 +37,33 @@ const Homepage = () => {
     setPizzas(newPizzas);
   };
 
+  useEffect(() => {
+    console.log('Use Effect called');
+  }, []);
+
   return (
-    <div
-      style={{
-        height: 'calc(100vh - 309px)',
-        padding: '4rem 4rem',
-        overflow: 'auto',
-      }}
-    >
-      <div className="wrapper-card-items">
-        {pizzas.map((item) => (
-          <CardPizza
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            handleRemovePizza={handleRemovePizza}
-          />
-        ))}
+    <>
+      {console.log('Render Home')}
+      <div
+        style={{
+          height: 'calc(100vh - 309px)',
+          padding: '4rem 4rem',
+          overflow: 'auto',
+        }}
+      >
+        <div className="wrapper-card-items">
+          {pizzas.map((item) => (
+            <CardPizza
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+              handleRemovePizza={handleRemovePizza}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
